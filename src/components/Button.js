@@ -6,7 +6,7 @@ const Wrapper = styled.button`
     ${font}; ${primaryColors}; ${shape};
 `;
 
-export default function Button({ text }) {
-    return <Wrapper>{text}</Wrapper>;
+export default function Button({ text, onClick }) {
+    return <Wrapper onClick={onClick}>{text}</Wrapper>;
 }
 

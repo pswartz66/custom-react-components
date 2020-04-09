@@ -1,2 +1,11 @@
 node_modules
 /node_modules
+
+/es
+/lib
+
+/umd
+npm-debug.log*
+
+guide.sh
+/dist-docs
