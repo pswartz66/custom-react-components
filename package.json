@@ -1,13 +1,20 @@
 {
   "name": "custom-react-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
+  "browser": "lib/index.umd.js",
+  "module": "lib/index.es.js",
   "scripts": {
     "test": "jest",
     "start": "styleguidist server",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublishOnly": "rm -rf lib && npm run build",
+    "postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
   },
+  "files": [
+    "/lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pswartz66/custom-react-components.git"
@@ -23,7 +30,8 @@
     "@emotion/core": "10.x",
     "@emotion/styled": "10.x",
     "react": "^16.x",
-    "react-dom": "^16.x"
+    "react-dom": "^16.x",
+    "rollup": "^2.x"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -44,6 +52,8 @@
     "rollup": "^2.3.4",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "webpack": "^4.42.1"
   },
   "dependencies": {
